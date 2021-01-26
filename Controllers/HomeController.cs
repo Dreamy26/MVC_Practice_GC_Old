@@ -23,6 +23,31 @@ namespace Assessment5A.Controllers
             return View();
         }
 
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        public IActionResult Welcome(string name, string password)
+        {
+            ViewBag.Name = name.ToUpper();
+            ViewBag.Name = name.Length;
+
+            if (password == "open sesame")
+            {
+                return RedirectToAction("Welcome");
+            }
+            else
+            {
+                return RedirectToAction("WrongPassword");
+            }
+        }
+
+        public IActionResult WrongPassword()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
